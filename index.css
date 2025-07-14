@@ -1,0 +1,259 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(45deg, #08001f, #30197d);
+    color: #fff;
+    min-height: 100vh;
+}
+
+.container {
+    width: 800px;
+    margin: 0 auto;
+    padding: 30px 0;
+    position: relative;
+    
+    background: rgba(235, 0, 255, 0.11);
+}
+
+/* Digital Clock Styles */
+.clock-container {
+    height: 180px;
+}
+
+.clock {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(40px);
+}
+
+.container::before {
+    content: '';
+    width: 180px;
+    height: 180px;
+    background: #f41b75;
+    border-radius: 5px;
+    position: absolute;
+    left: -50px;
+    top: -30px;
+    z-index: -1;
+}
+
+.container::after {
+    content: '';
+    width: 180px;
+    height: 180px;
+    background: #419aff;
+    border-radius: 50%;
+    position: absolute;
+    right: -30px;
+    bottom: -50px;
+    z-index: -1;
+}
+
+.clock span {
+    font-size: 80px;
+    width: 110px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+.clock span::after {
+    font-size: 14px;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#hrs::after {
+    content: 'HOURS';
+}
+
+#min::after {
+    content: 'MINS';
+}
+
+#sec::after {
+    content: 'SEC';
+}
+
+/* Timer Styles */
+.timer-container {
+    padding: 30px;
+    padding-top: 0px;
+    backdrop-filter: blur(40px);
+}
+
+.timer-container h1 {
+    text-align: center;
+    font-size: 28px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+input[type="date"], input[type="time"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#calculate {
+    background: #419aff;
+    color: white;
+}
+
+#stop {
+    background: #f41b75;
+    color: white;
+}
+
+#reset {
+    background: #4CAF50;
+    color: white;
+}
+
+.button-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.countdown {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+.countdown div {
+    text-align: center;
+}
+
+.heading {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.time {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #30197d, #08001f);
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.modal-content::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #f41b75, #419aff);
+    z-index: -1;
+    border-radius: 12px;
+    animation: borderGlow 2s infinite alternate;
+}
+
+.modal h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.modal p {
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.modal-btn {
+    background: #419aff;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.modal-btn:hover {
+    background: #f41b75;
+    transform: scale(1.05);
+}
+
+#continue {
+    background: #FFA500;
+    color: white;
+    display: none; /* Hidden by default */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes borderGlow {
+    from { opacity: 0.7; }
+    to { opacity: 1; }
+}
